@@ -66,6 +66,8 @@ export default {
 
             if(!this.hasStarted) return false;
 
+            if(this.writing === null) return false;
+
             return this.isWriting && this.writing.length >= this.currentWord.length;
         },
         hasStarted(){
