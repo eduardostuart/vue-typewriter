@@ -56,6 +56,10 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	'use strict';
 	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
 	var _Typewriter = __webpack_require__(2);
 	
 	var _Typewriter2 = _interopRequireDefault(_Typewriter);
@@ -66,7 +70,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  Vue.component('typewriter', _Typewriter2.default);
 	}
 	
-	module.exports = _Typewriter2.default;
+	exports.default = _Typewriter2.default;
 
 /***/ },
 /* 1 */,
