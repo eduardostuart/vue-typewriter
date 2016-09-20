@@ -89,6 +89,8 @@ export default {
 
             if(!this.hasStarted) return false;
 
+            if(this.isErasing && this.writing === null) return true;
+
             return this.isErasing && this.writing.length <= 0;
         },
         isLastWord(){
