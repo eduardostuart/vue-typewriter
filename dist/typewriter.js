@@ -133,7 +133,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	
 	// module
-	exports.push([module.id, ".typewriter-cursor {\n  opacity: 1;\n  -webkit-animation: blink 0.7s infinite;\n          animation: blink 0.7s infinite;\n  margin-left: -4px; }\n\n@-webkit-keyframes blink {\n  0% {\n    opacity: 1; }\n  50% {\n    opacity: 0; }\n  100% {\n    opacity: 1; } }\n\n@keyframes blink {\n  0% {\n    opacity: 1; }\n  50% {\n    opacity: 0; }\n  100% {\n    opacity: 1; } }\n", ""]);
+	exports.push([module.id, ".typewriter-selected {\n  background-color: rgba(0, 0, 0, 0.1); }\n\n.typewriter-cursor {\n  opacity: 1;\n  -webkit-animation: blink 0.7s infinite;\n          animation: blink 0.7s infinite;\n  position: relative;\n  top: -3px;\n  left: -12px; }\n\n@-webkit-keyframes blink {\n  0% {\n    opacity: 1; }\n  50% {\n    opacity: 0; }\n  100% {\n    opacity: 1; } }\n\n@keyframes blink {\n  0% {\n    opacity: 1; }\n  50% {\n    opacity: 0; }\n  100% {\n    opacity: 1; } }\n", ""]);
 	
 	// exports
 
@@ -482,6 +482,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	        cursorSymbol: {
 	            type: String,
 	            default: '|'
+	        },
+	        fullErase: {
+	            type: Boolean,
+	            default: false
 	        }
 	    },
 	    data: function data() {
@@ -489,9 +493,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	            pos: 0,
 	            isWriting: false,
 	            isWaiting: false,
-	            currentWordPosition: null,
+	            currentWordPos: null,
 	            currentWord: null,
-	            writing: null
+	            writing: null,
+	            isFullErasing: false
 	        };
 	    },
 	
@@ -517,7 +522,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	            return this.isErasing && this.writing.length <= 0;
 	        },
 	        isLastWord: function isLastWord() {
-	            return this.hasStarted && this.currentWordPosition >= this.words.length - 1;
+	            return this.hasStarted && this.currentWordPos >= this.words.length - 1;
 	        }
 	    },
 	    ready: function ready() {
@@ -531,21 +536,24 @@ return /******/ (function(modules) { // webpackBootstrap
 	            if (!this.canContinue()) return;
 	
 	            if (!this.hasStarted) {
-	                this.currentWordPosition = 0;
+	                this.currentWordPos = 0;
 	            } else {
 	                if (this.isLastWord) {
-	                    this.currentWordPosition = 0;
+	                    this.currentWordPos = 0;
 	                } else {
-	                    this.currentWordPosition++;
+	                    this.currentWordPos++;
 	                }
 	            }
 	
 	            this.isWaiting = true;
 	
 	            $letterTimeout = setTimeout(function () {
-	                clearInterval($letterTimeout);
+	
+	                clearTimeout($letterTimeout);
+	
 	                _this.isWaiting = false;
-	                _this.currentWord = _this.words[_this.currentWordPosition];
+	
+	                _this.currentWord = _this.words[_this.currentWordPos];
 	                _this.pos = _this.isWriting ? _this.currentWord.length : 0;
 	                _this.isWriting = !_this.isWriting;
 	            }, this.interval);
@@ -564,13 +572,30 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	            if (this.isWriting && this.hasFinishedWriting) {
 	                this.isWriting = !this.isWriting;
+	                this.prepareFullErase();
 	                return false;
 	            }
 	
 	            return true;
 	        },
-	        write: function write() {
+	        prepareFullErase: function prepareFullErase() {
 	            var _this2 = this;
+	
+	            if (this.fullErase && !this.isFullErasing) {
+	
+	                this.isFullErasing = true;
+	                this.isWaiting = true;
+	
+	                setTimeout(function () {
+	                    _this2.isWaiting = false;
+	                    _this2.writing = null;
+	                    _this2.pos = 0;
+	                    _this2.isFullErasing = false;
+	                }, 300);
+	            }
+	        },
+	        write: function write() {
+	            var _this3 = this;
 	
 	            if ($writeInterval !== null) {
 	                clearInterval($writeInterval);
@@ -578,15 +603,15 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	            $writeInterval = setInterval(function () {
 	
-	                _this2.next();
+	                _this3.next();
 	
-	                if (_this2.hasStarted && !_this2.isWaiting) {
-	                    if (_this2.isWriting) {
-	                        _this2.pos++;
-	                        _this2.writing = _this2.currentWord.substr(0, _this2.pos);
+	                if (_this3.hasStarted && !_this3.isWaiting) {
+	                    if (_this3.isWriting) {
+	                        _this3.pos++;
+	                        _this3.writing = _this3.currentWord.substr(0, _this3.pos);
 	                    } else {
-	                        _this2.pos--;
-	                        _this2.writing = _this2.currentWord.substr(0, _this2.pos);
+	                        _this3.pos--;
+	                        _this3.writing = _this3.currentWord.substr(0, _this3.pos);
 	                    }
 	                }
 	            }, this.speed);
@@ -598,7 +623,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 8 */
 /***/ function(module, exports) {
 
-	module.exports = "<span class=\"typewriter\">\n        <slot></slot>\n        <span class=\"typewriter-msg\">{{ writing }}</span>\n        <span class=\"typewriter-cursor\" v-if=\"cursor\">\n            {{ cursorSymbol }}\n        </span>\n    </span>";
+	module.exports = "<span class=\"typewriter\">\n        <slot></slot>\n        <span class=\"typewriter-msg\" :class='{\"typewriter-selected\":isFullErasing}'>\n          {{ writing }}\n        </span>\n        <span class=\"typewriter-cursor\" v-if=\"cursor\">\n            {{ cursorSymbol }}\n        </span>\n    </span>";
 
 /***/ }
 /******/ ])

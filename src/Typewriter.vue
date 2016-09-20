@@ -1,17 +1,24 @@
 <template>
     <span class="typewriter">
         <slot></slot>
-        <span class="typewriter-msg">{{ writing }}</span>
+        <span class="typewriter-msg" :class='{"typewriter-selected":isFullErasing}'>
+          {{ writing }}
+        </span>
         <span class="typewriter-cursor" v-if="cursor">
             {{ cursorSymbol }}
         </span>
     </span>
 </template>
 <style lang="sass">
+    .typewriter-selected{
+      background-color: rgba(0,0,0,.1);
+    }
     .typewriter-cursor{
         opacity: 1;
         animation: blink 0.7s infinite;
-        margin-left: -4px;
+        position: relative;
+        top:-3px;
+        left:-12px;
     }
     @keyframes blink{
         0% { opacity:1; }
@@ -46,6 +53,10 @@ export default {
         cursorSymbol:{
             type:String,
             default:'|'
+        },
+        fullErase:{
+          type:Boolean,
+          default:false
         }
     },
     data(){
@@ -53,9 +64,10 @@ export default {
             pos:0,
             isWriting:false,
             isWaiting:false,
-            currentWordPosition:null,
+            currentWordPos:null,
             currentWord:null,
-            writing:null
+            writing:null,
+            isFullErasing:false
         }
     },
     computed:{
@@ -80,7 +92,7 @@ export default {
             return this.isErasing && this.writing.length <= 0;
         },
         isLastWord(){
-            return this.hasStarted && this.currentWordPosition >= ( this.words.length - 1 );
+            return this.hasStarted && this.currentWordPos >= ( this.words.length - 1 );
         }
     },
     ready(){
@@ -92,23 +104,27 @@ export default {
             if(! this.canContinue()) return;
 
             if(!this.hasStarted){
-                this.currentWordPosition = 0;
+                this.currentWordPos = 0;
             }else{
                 if(this.isLastWord){
-                    this.currentWordPosition = 0;
+                    this.currentWordPos = 0;
                 }else{
-                    this.currentWordPosition++;
+                    this.currentWordPos++;
                 }
             }
 
             this.isWaiting = true;
 
             $letterTimeout = setTimeout(() => {
-                clearInterval($letterTimeout);
+
+                clearTimeout($letterTimeout);
+
                 this.isWaiting = false;
-                this.currentWord = this.words[this.currentWordPosition];
+
+                this.currentWord = this.words[this.currentWordPos];
                 this.pos = this.isWriting ? this.currentWord.length : 0;
                 this.isWriting = !this.isWriting;
+
             }, this.interval );
         },
         canContinue(){
@@ -125,10 +141,25 @@ export default {
 
             if(this.isWriting && this.hasFinishedWriting){
                 this.isWriting = !this.isWriting;
+                this.prepareFullErase();
                 return false;
             }
 
             return true;
+        },
+        prepareFullErase(){
+            if(this.fullErase && !this.isFullErasing){
+
+              this.isFullErasing = true;
+              this.isWaiting = true;
+
+              setTimeout(() => {
+                this.isWaiting = false;
+                this.writing = null;
+                this.pos = 0;
+                this.isFullErasing = false;
+              },300);
+            }
         },
         write(){
 
