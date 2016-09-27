@@ -1,3 +1,2 @@
-  Under development
-
+# Vue Typewriter
 

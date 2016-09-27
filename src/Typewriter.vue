@@ -71,29 +71,27 @@ export default {
         }
     },
     computed:{
-        isErasing(){
+        isErasing: function(){
             return !this.isWriting;
         },
-        hasFinishedWriting(){
-
+        hasFinishedWriting: function(){
             if(!this.hasStarted) return false;
 
             if(this.writing === null) return false;
 
             return this.isWriting && this.writing.length >= this.currentWord.length;
         },
-        hasStarted(){
+        hasStarted: function(){
             return this.currentWord !== null;
         },
-        hasFinishedErasing(){
-
+        hasFinishedErasing: function(){
             if(!this.hasStarted) return false;
 
             if(this.isErasing && this.writing === null) return true;
 
             return this.isErasing && this.writing.length <= 0;
         },
-        isLastWord(){
+        isLastWord: function(){
             return this.hasStarted && this.currentWordPos >= ( this.words.length - 1 );
         }
     },
@@ -102,7 +100,6 @@ export default {
     },
     methods:{
         next(){
-
             if(! this.canContinue()) return;
 
             if(!this.hasStarted){
@@ -184,7 +181,8 @@ export default {
                 }
 
             },this.speed);
-        }
+        },
+
     }
 }
 </script>
