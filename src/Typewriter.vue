@@ -58,7 +58,8 @@ export default {
       return !this.isWriting
     },
     hasFinishedWriting () {
-      if (!this.hasStarted || this.writing === null) return false
+      if (this.writing === null || this.currentWord === null) return false
+      if (!this.hasStarted) return false
       return this.isWriting && this.writing.length >= this.currentWord.length
     },
     hasStarted () {
