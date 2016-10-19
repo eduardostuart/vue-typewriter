@@ -60,62 +60,63 @@ return /******/ (function(modules) { // webpackBootstrap
 	  value: true
 	});
 	
-	var _Typewriter = __webpack_require__(2);
+	var _Typewriter = __webpack_require__(3);
 	
 	var _Typewriter2 = _interopRequireDefault(_Typewriter);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	if (window.Vue) {
-	  Vue.component('typewriter', _Typewriter2.default);
+	  window.Vue.component('typewriter', _Typewriter2.default);
 	}
 	
 	exports.default = _Typewriter2.default;
 
 /***/ },
 /* 1 */,
-/* 2 */
+/* 2 */,
+/* 3 */
 /***/ function(module, exports, __webpack_require__) {
 
-	__webpack_require__(3)
-	module.exports = __webpack_require__(7)
+	__webpack_require__(4)
+	module.exports = __webpack_require__(8)
 	
 	if (module.exports.__esModule) module.exports = module.exports.default
-	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(8)
+	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(9)
 	if (false) {
 	(function () {
 	var hotAPI = require("vue-hot-reload-api")
 	hotAPI.install(require("vue"))
 	if (!hotAPI.compatible) return
-	var id = "-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Typewriter.vue"
+	var id = "-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./../node_modules/eslint-loader/index.js!./Typewriter.vue"
 	hotAPI.createRecord(id, module.exports)
-	module.hot.accept(["-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Typewriter.vue","-!vue-html-loader!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Typewriter.vue"], function () {
-	var newOptions = require("-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Typewriter.vue")
+	module.hot.accept(["-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./../node_modules/eslint-loader/index.js!./Typewriter.vue","-!vue-html-loader!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./../node_modules/eslint-loader/index.js!./Typewriter.vue"], function () {
+	var newOptions = require("-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./../node_modules/eslint-loader/index.js!./Typewriter.vue")
 	if (newOptions && newOptions.__esModule) newOptions = newOptions.default
-	var newTemplate = require("-!vue-html-loader!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Typewriter.vue")
+	var newTemplate = require("-!vue-html-loader!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./../node_modules/eslint-loader/index.js!./Typewriter.vue")
 	hotAPI.update(id, newOptions, newTemplate)
 	})
 	})()
 	}
 
 /***/ },
-/* 3 */
+/* 4 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(4);
+	var content = __webpack_require__(5);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(6)(content, {});
+	var update = __webpack_require__(7)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-0314fb71&file=Typewriter.vue!./../node_modules/sass-loader/index.js!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Typewriter.vue", function() {
-				var newContent = require("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-0314fb71&file=Typewriter.vue!./../node_modules/sass-loader/index.js!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Typewriter.vue");
+			module.hot.accept("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-0971b9ea&file=Typewriter.vue!./../node_modules/sass-loader/index.js!./style.scss", function() {
+				var newContent = require("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-0971b9ea&file=Typewriter.vue!./../node_modules/sass-loader/index.js!./style.scss");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -125,10 +126,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	}
 
 /***/ },
-/* 4 */
+/* 5 */
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(5)();
+	exports = module.exports = __webpack_require__(6)();
 	// imports
 	
 	
@@ -139,7 +140,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-/* 5 */
+/* 6 */
 /***/ function(module, exports) {
 
 	/*
@@ -195,7 +196,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-/* 6 */
+/* 7 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/*
@@ -447,185 +448,174 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-/* 7 */
+/* 8 */
 /***/ function(module, exports) {
 
 	'use strict';
 	
 	Object.defineProperty(exports, "__esModule", {
-	    value: true
+	  value: true
 	});
 	
 	var $writeInterval = null;
 	var $letterTimeout = null;
+	var $fullEraseTimeout = null;
 	
 	exports.default = {
-	    props: {
-	        words: {
-	            type: Array,
-	            default: function _default() {
-	                return [];
-	            }
-	        },
-	        interval: {
-	            type: Number,
-	            default: 200
-	        },
-	        speed: {
-	            type: Number,
-	            default: 300
-	        },
-	        cursor: {
-	            type: Boolean,
-	            default: true
-	        },
-	        cursorSymbol: {
-	            type: String,
-	            default: '|'
-	        },
-	        fullErase: {
-	            type: Boolean,
-	            default: false
-	        }
+	  props: {
+	    words: {
+	      type: Array,
+	      default: function _default() {
+	        return [];
+	      }
 	    },
-	    data: function data() {
-	        return {
-	            pos: 0,
-	            isWriting: false,
-	            isWaiting: false,
-	            currentWordPos: null,
-	            currentWord: null,
-	            writing: null,
-	            isFullErasing: false
-	        };
+	    interval: {
+	      type: Number,
+	      default: 200
 	    },
-	
-	    computed: {
-	        isErasing: function isErasing() {
-	            return !this.isWriting;
-	        },
-	        hasFinishedWriting: function hasFinishedWriting() {
-	
-	            if (!this.hasStarted) return false;
-	
-	            if (this.writing === null) return false;
-	
-	            return this.isWriting && this.writing.length >= this.currentWord.length;
-	        },
-	        hasStarted: function hasStarted() {
-	            return this.currentWord !== null;
-	        },
-	        hasFinishedErasing: function hasFinishedErasing() {
-	
-	            if (!this.hasStarted) return false;
-	
-	            if (this.isErasing && this.writing === null) return true;
-	
-	            return this.isErasing && this.writing.length <= 0;
-	        },
-	        isLastWord: function isLastWord() {
-	            return this.hasStarted && this.currentWordPos >= this.words.length - 1;
-	        }
+	    speed: {
+	      type: Number,
+	      default: 300
 	    },
-	    ready: function ready() {
-	        this.write();
+	    cursor: {
+	      type: Boolean,
+	      default: true
 	    },
-	
-	    methods: {
-	        next: function next() {
-	            var _this = this;
-	
-	            if (!this.canContinue()) return;
-	
-	            if (!this.hasStarted) {
-	                this.currentWordPos = 0;
-	            } else {
-	                if (this.isLastWord) {
-	                    this.currentWordPos = 0;
-	                } else {
-	                    this.currentWordPos++;
-	                }
-	            }
-	
-	            this.isWaiting = true;
-	
-	            $letterTimeout = setTimeout(function () {
-	
-	                clearTimeout($letterTimeout);
-	
-	                _this.isWaiting = false;
-	
-	                _this.currentWord = _this.words[_this.currentWordPos];
-	                _this.pos = _this.isWriting ? _this.currentWord.length : 0;
-	                _this.isWriting = !_this.isWriting;
-	            }, this.interval);
-	        },
-	        canContinue: function canContinue() {
-	
-	            if (this.isWaiting) return false;
-	
-	            if (this.isWriting && !this.hasFinishedWriting && this.hasStarted) {
-	                return false;
-	            }
-	
-	            if (this.isErasing && !this.hasFinishedErasing && this.hasStarted) {
-	                return false;
-	            }
-	
-	            if (this.isWriting && this.hasFinishedWriting) {
-	                this.isWriting = !this.isWriting;
-	                this.prepareFullErase();
-	                return false;
-	            }
-	
-	            return true;
-	        },
-	        prepareFullErase: function prepareFullErase() {
-	            var _this2 = this;
-	
-	            if (this.fullErase && !this.isFullErasing) {
-	
-	                this.isFullErasing = true;
-	                this.isWaiting = true;
-	
-	                setTimeout(function () {
-	                    _this2.isWaiting = false;
-	                    _this2.writing = null;
-	                    _this2.pos = 0;
-	                    _this2.isFullErasing = false;
-	                }, 300);
-	            }
-	        },
-	        write: function write() {
-	            var _this3 = this;
-	
-	            if ($writeInterval !== null) {
-	                clearInterval($writeInterval);
-	            }
-	
-	            $writeInterval = setInterval(function () {
-	
-	                _this3.next();
-	
-	                if (_this3.hasStarted && !_this3.isWaiting) {
-	                    if (_this3.isWriting) {
-	                        _this3.pos++;
-	                        _this3.writing = _this3.currentWord.substr(0, _this3.pos);
-	                    } else {
-	                        _this3.pos--;
-	                        _this3.writing = _this3.currentWord.substr(0, _this3.pos);
-	                    }
-	                }
-	            }, this.speed);
-	        }
+	    cursorSymbol: {
+	      type: String,
+	      default: '|'
+	    },
+	    fullErase: {
+	      type: Boolean,
+	      default: false
 	    }
+	  },
+	  data: function data() {
+	    return {
+	      pos: 0,
+	      isWriting: false,
+	      isWaiting: false,
+	      currentWordPos: null,
+	      currentWord: null,
+	      writing: null,
+	      isFullErasing: false
+	    };
+	  },
+	
+	  computed: {
+	    isErasing: function isErasing() {
+	      return !this.isWriting;
+	    },
+	    hasFinishedWriting: function hasFinishedWriting() {
+	      if (!this.hasStarted) return false;
+	      return this.isWriting && this.writing.length >= this.currentWord.length;
+	    },
+	    hasStarted: function hasStarted() {
+	      return this.currentWord !== null;
+	    },
+	    hasFinishedErasing: function hasFinishedErasing() {
+	      if (!this.hasStarted) return false;
+	      if (this.isErasing && this.writing === null) return true;
+	      return this.isErasing && this.writing.length <= 0;
+	    },
+	    isLastWord: function isLastWord() {
+	      return this.hasStarted && this.currentWordPos >= this.words.length - 1;
+	    }
+	  },
+	  ready: function ready() {
+	    this.type();
+	  },
+	
+	  methods: {
+	    next: function next() {
+	      var _this = this;
+	
+	      if (!this.canContinue()) return;
+	
+	      if (!this.hasStarted) {
+	        this.currentWordPos = 0;
+	      } else {
+	        if (this.isLastWord) {
+	          this.currentWordPos = 0;
+	        } else {
+	          this.currentWordPos++;
+	        }
+	      }
+	
+	      this.isWaiting = true;
+	
+	      $letterTimeout = setTimeout(function () {
+	        clearTimeout($letterTimeout);
+	        _this.isWaiting = false;
+	        _this.currentWord = _this.words[_this.currentWordPos];
+	        _this.pos = _this.isWriting ? _this.currentWord.length : 0;
+	        _this.isWriting = !_this.isWriting;
+	      }, this.interval);
+	    },
+	    canContinue: function canContinue() {
+	      if (this.isWaiting) return false;
+	
+	      if (this.isWriting && !this.hasFinishedWriting && this.hasStarted) {
+	        return false;
+	      }
+	
+	      if (this.isErasing && !this.hasFinishedErasing && this.hasStarted) {
+	        return false;
+	      }
+	
+	      if (this.isWriting && this.hasFinishedWriting) {
+	        this.isWriting = !this.isWriting;
+	        this.prepareFullErase();
+	        return false;
+	      }
+	
+	      return true;
+	    },
+	    prepareFullErase: function prepareFullErase() {
+	      var _this2 = this;
+	
+	      if (this.fullErase && !this.isFullErasing) {
+	        this.isFullErasing = true;
+	        this.isWaiting = true;
+	
+	        $fullEraseTimeout = setTimeout(function () {
+	          clearTimeout($fullEraseTimeout);
+	          _this2.isWaiting = false;
+	          _this2.writing = null;
+	          _this2.pos = 0;
+	          _this2.isFullErasing = false;
+	        }, 300);
+	      }
+	    },
+	    type: function type() {
+	      var _this3 = this;
+	
+	      if ($writeInterval !== null) {
+	        clearInterval($writeInterval);
+	      }
+	
+	      $writeInterval = setInterval(function () {
+	        _this3.next();
+	
+	        if (_this3.hasStarted && !_this3.isWaiting) {
+	          if (_this3.isWriting) {
+	            _this3.pos++;
+	            _this3.writing = _this3.currentWord.substr(0, _this3.pos);
+	          } else {
+	            _this3.pos--;
+	            _this3.writing = _this3.currentWord.substr(0, _this3.pos);
+	          }
+	        }
+	      }, this.speed);
+	    }
+	  }
 	};
 
 /***/ },
-/* 8 */
+/* 9 */
 /***/ function(module, exports) {
 
-	module.exports = "<span class=\"typewriter\">\n        <slot></slot>\n        <span class=\"typewriter-msg\" :class='{\"typewriter-selected\":isFullErasing}'>\n          {{ writing }}\n        </span>\n        <span class=\"typewriter-cursor\" v-if=\"cursor\">\n            {{ cursorSymbol }}\n        </span>\n    </span>";
+	module.exports = "<span class=\"typewriter\">\n    <slot></slot>\n    <span\n      class=\"typewriter-msg\"\n      :class='{\"typewriter-selected\":isFullErasing}'>{{ writing }}</span>\n    <span class=\"typewriter-cursor\" v-if=\"cursor\">{{ cursorSymbol }}</span>\n  </span>";
 
 /***/ }
 /******/ ])

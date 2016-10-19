@@ -1,5 +1,6 @@
 var webpack = require('webpack')
 var path = require('path')
+var projectRoot = path.resolve(__dirname, '../');
 
 module.exports = {
   entry: './src/index.js',
@@ -12,6 +13,20 @@ module.exports = {
     root: path.resolve('./')
   },
   module: {
+    preLoaders: [
+      {
+        test: /\.vue$/,
+        loader: 'eslint',
+        include: projectRoot,
+        exclude: /node_modules/
+      },
+      {
+        test: /\.js$/,
+        loader: 'eslint',
+        include: projectRoot,
+        exclude: /node_modules/
+      }
+    ],
     loaders: [
       {test: /\.vue$/, loader: 'vue' },
       {test: /\.js$/,exclude: /node_modules/,loader: 'babel'},
@@ -19,10 +34,17 @@ module.exports = {
     ]
   },
   babel: {
-  presets: ['es2015'],
-  plugins: ['transform-runtime']
-},
-  devtool: 'source-map'
+    presets: ['es2015'],
+    plugins: ['transform-runtime']
+  },
+  eslint: {
+    formatter: require('eslint-friendly-formatter')
+  },
+  devtool: 'source-map',
+  devServer: {
+    inline:true,
+    port: 8080
+  }
 };
 
 
@@ -41,3 +63,4 @@ if (process.env.NODE_ENV === 'production') {
     })
   ];
 }
+
