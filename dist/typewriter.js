@@ -507,6 +507,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	      return !this.isWriting;
 	    },
 	    hasFinishedWriting: function hasFinishedWriting() {
+	      if (this.writing === null || this.currentWord === null) return false;
 	      if (!this.hasStarted) return false;
 	      return this.isWriting && this.writing.length >= this.currentWord.length;
 	    },
