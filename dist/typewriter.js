@@ -526,6 +526,19 @@ return /******/ (function(modules) { // webpackBootstrap
 	  ready: function ready() {
 	    this.type();
 	  },
+	  beforeDestroy: function beforeDestroy() {
+	    if ($writeInterval !== null) {
+	      clearInterval($writeInterval);
+	    }
+	
+	    if ($letterTimeout !== null) {
+	      clearTimeout($letterTimeout);
+	    }
+	
+	    if ($fullEraseTimeout !== null) {
+	      clearTimeout($fullEraseTimeout);
+	    }
+	  },
 	
 	  methods: {
 	    next: function next() {

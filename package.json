@@ -1,6 +1,6 @@
 {
   "name": "vue-typewriter",
-  "version": "1.0.10",
+  "version": "1.0.12",
   "description": "",
   "main": "dist/typewriter.js",
   "scripts": {
