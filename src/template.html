@@ -1,0 +1,7 @@
+<span class="typewriter">
+<slot></slot>
+<span
+  class="typewriter-msg"
+  :class='{"typewriter-selected":isFullErasing}'>{{ typing }}</span>
+  <span class="typewriter-cursor" v-if="cursor">{{ cursorSymbol }}</span>
+</span>

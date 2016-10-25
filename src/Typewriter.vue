@@ -1,18 +1,22 @@
-<style lang="sass" src="./style.scss"></style>
-<template>
-  <span class="typewriter">
-    <slot></slot>
-    <span
-      class="typewriter-msg"
-      :class='{"typewriter-selected":isFullErasing}'>{{ writing }}</span>
-    <span class="typewriter-cursor" v-if="cursor">{{ cursorSymbol }}</span>
-  </span>
-</template>
+<template src="./template.html"></template>
+<style>
+.typewriter-selected{
+  background-color: rgba(0,0,0,.1);
+}
+.typewriter-cursor{
+    opacity: 1;
+    animation: blink 0.7s infinite;
+    position: relative;
+    top:-3px;
+    left:-12px;
+}
+@keyframes blink{
+    0% { opacity:1; }
+    50% { opacity:0; }
+    100% { opacity:1; }
+}
+</style>
 <script>
-var $writeInterval = null
-var $letterTimeout = null
-var $fullEraseTimeout = null
-
 export default {
   props: {
     words: {
@@ -44,31 +48,31 @@ export default {
   },
   data () {
     return {
-      pos: 0,
-      isWriting: false,
+      typePos: 0,
+      isTyping: false,
       isWaiting: false,
       currentWordPos: null,
       currentWord: null,
-      writing: null,
+      typing: null,
       isFullErasing: false
     }
   },
   computed: {
     isErasing () {
-      return !this.isWriting
+      return !this.isTyping
     },
-    hasFinishedWriting () {
-      if (this.writing === null || this.currentWord === null) return false
+    finishTyping () {
+      if (this.typing === null || this.currentWord === null) return false
       if (!this.hasStarted) return false
-      return this.isWriting && this.writing.length >= this.currentWord.length
+      return this.isTyping && this.typing.length >= this.currentWord.length
     },
     hasStarted () {
       return this.currentWord !== null
     },
-    hasFinishedErasing () {
+    isErased () {
       if (!this.hasStarted) return false
-      if (this.isErasing && this.writing === null) return true
-      return this.isErasing && this.writing.length <= 0
+      if (this.isErasing && this.typing === null) return true
+      return this.isErasing && this.typing.length <= 0
     },
     isLastWord () {
       return this.hasStarted && this.currentWordPos >= (this.words.length - 1)
@@ -78,19 +82,29 @@ export default {
     this.type()
   },
   beforeDestroy () {
-    if ($writeInterval !== null) {
-      clearInterval($writeInterval)
-    }
-
-    if ($letterTimeout !== null) {
-      clearTimeout($letterTimeout)
-    }
-
-    if ($fullEraseTimeout !== null) {
-      clearTimeout($fullEraseTimeout)
-    }
+    this.destroyTimers()
   },
   methods: {
+    destroyTimers () {
+      this.destroyTypeInterval()
+      this.destroyCharTimeout()
+      this.destroyFullEraseTimeout()
+    },
+    destroyTypeInterval () {
+      if (this.typeInterval) {
+        clearInterval(this.typeInterval)
+      }
+    },
+    destroyCharTimeout () {
+      if (this.charTimeout) {
+        clearTimeout(this.charTimeout)
+      }
+    },
+    destroyFullEraseTimeout () {
+      if (this.fullEraseTimeout) {
+        clearTimeout(this.fullEraseTimeout)
+      }
+    },
     next () {
       if (!this.canContinue()) return
 
@@ -106,63 +120,63 @@ export default {
 
       this.isWaiting = true
 
-      $letterTimeout = setTimeout(() => {
-        clearTimeout($letterTimeout)
+      this.charTimeout = setTimeout(() => {
+        this.destroyCharTimeout()
         this.isWaiting = false
         this.currentWord = this.words[this.currentWordPos]
-        this.pos = this.isWriting ? this.currentWord.length : 0
-        this.isWriting = !this.isWriting
+        this.typePos = this.isTyping ? this.currentWord.length : 0
+        this.isTyping = !this.isTyping
       }, this.interval)
     },
     canContinue () {
       if (this.isWaiting) return false
 
-      if (this.isWriting && !this.hasFinishedWriting && this.hasStarted) {
+      if (this.isTyping && !this.finishTyping && this.hasStarted) {
         return false
       }
 
-      if (this.isErasing && !this.hasFinishedErasing && this.hasStarted) {
+      if (this.isErasing && !this.isErased && this.hasStarted) {
         return false
       }
 
-      if (this.isWriting && this.hasFinishedWriting) {
-        this.isWriting = !this.isWriting
-        this.prepareFullErase()
+      if (this.isTyping && this.finishTyping) {
+        this.isTyping = !this.isTyping
+        this.fullErase()
         return false
       }
 
       return true
     },
-    prepareFullErase () {
+    fullErase () {
       if (this.fullErase && !this.isFullErasing) {
         this.isFullErasing = true
         this.isWaiting = true
 
-        $fullEraseTimeout = setTimeout(() => {
-          clearTimeout($fullEraseTimeout)
-          this.isWaiting = false
-          this.writing = null
-          this.pos = 0
-          this.isFullErasing = false
+        this.fullEraseTimeout = setTimeout(() => {
+          clearTimeout(this.fullEraseTimeout)
+          this.reset()
         }, 300)
       }
     },
+    reset () {
+      this.isWaiting = false
+      this.typing = null
+      this.typePos = 0
+      this.isFullErasing = false
+    },
     type () {
-      if ($writeInterval !== null) {
-        clearInterval($writeInterval)
-      }
+      this.destroyTypeInterval()
 
-      $writeInterval = setInterval(() => {
+      this.typeInterval = setInterval(() => {
         this.next()
 
         if (this.hasStarted && !this.isWaiting) {
-          if (this.isWriting) {
-            this.pos++
-            this.writing = this.currentWord.substr(0, this.pos)
+          if (this.isTyping) {
+            this.typePos++
           } else {
-            this.pos--
-            this.writing = this.currentWord.substr(0, this.pos)
+            this.typePos--
           }
+          this.typing = this.currentWord.substr(0, this.typePos)
         }
       }, this.speed)
     }
