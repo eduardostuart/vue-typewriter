@@ -60,7 +60,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  value: true
 	});
 	
-	var _Typewriter = __webpack_require__(3);
+	var _Typewriter = __webpack_require__(1);
 	
 	var _Typewriter2 = _interopRequireDefault(_Typewriter);
 	
@@ -73,50 +73,69 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports.default = _Typewriter2.default;
 
 /***/ },
-/* 1 */,
-/* 2 */,
-/* 3 */
+/* 1 */
 /***/ function(module, exports, __webpack_require__) {
 
-	__webpack_require__(4)
-	module.exports = __webpack_require__(8)
+	var __vue_exports__, __vue_options__
 	
-	if (module.exports.__esModule) module.exports = module.exports.default
-	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(9)
-	if (false) {
-	(function () {
-	var hotAPI = require("vue-hot-reload-api")
-	hotAPI.install(require("vue"))
-	if (!hotAPI.compatible) return
-	var id = "-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./../node_modules/eslint-loader/index.js!./Typewriter.vue"
-	hotAPI.createRecord(id, module.exports)
-	module.hot.accept(["-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./../node_modules/eslint-loader/index.js!./Typewriter.vue","-!vue-html-loader!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./../node_modules/eslint-loader/index.js!./Typewriter.vue"], function () {
-	var newOptions = require("-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./../node_modules/eslint-loader/index.js!./Typewriter.vue")
-	if (newOptions && newOptions.__esModule) newOptions = newOptions.default
-	var newTemplate = require("-!vue-html-loader!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./../node_modules/eslint-loader/index.js!./Typewriter.vue")
-	hotAPI.update(id, newOptions, newTemplate)
-	})
-	})()
+	/* styles */
+	__webpack_require__(2)
+	
+	/* script */
+	__vue_exports__ = __webpack_require__(6)
+	
+	/* template */
+	var __vue_template__ = __webpack_require__(7)
+	__vue_options__ = __vue_exports__ = __vue_exports__ || {}
+	if (
+	  typeof __vue_exports__.default === "object" ||
+	  typeof __vue_exports__.default === "function"
+	) {
+	if (Object.keys(__vue_exports__).some(function (key) { return key !== "default" && key !== "__esModule" })) {console.error("named exports are not supported in *.vue files.")}
+	__vue_options__ = __vue_exports__ = __vue_exports__.default
 	}
+	if (typeof __vue_options__ === "function") {
+	  __vue_options__ = __vue_options__.options
+	}
+	__vue_options__.__file = "/Users/eduardostuart/Code/Projects/vue-typewriter/src/Typewriter.vue"
+	__vue_options__.render = __vue_template__.render
+	__vue_options__.staticRenderFns = __vue_template__.staticRenderFns
+	
+	/* hot reload */
+	if (false) {(function () {
+	  var hotAPI = require("vue-loader/node_modules/vue-hot-reload-api")
+	  hotAPI.install(require("vue"), false)
+	  if (!hotAPI.compatible) return
+	  module.hot.accept()
+	  if (!module.hot.data) {
+	    hotAPI.createRecord("data-v-0971b9ea", __vue_options__)
+	  } else {
+	    hotAPI.reload("data-v-0971b9ea", __vue_options__)
+	  }
+	})()}
+	if (__vue_options__.functional) {console.error("[vue-loader] Typewriter.vue: functional components are not supported and should be defined in plain js files using render functions.")}
+	
+	module.exports = __vue_exports__
+
 
 /***/ },
-/* 4 */
+/* 2 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(5);
+	var content = __webpack_require__(3);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(7)(content, {});
+	var update = __webpack_require__(5)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-0971b9ea&file=Typewriter.vue!./../node_modules/sass-loader/index.js!./style.scss", function() {
-				var newContent = require("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-0971b9ea&file=Typewriter.vue!./../node_modules/sass-loader/index.js!./style.scss");
+			module.hot.accept("!!./../node_modules/css-loader/index.js?sourceMap!./../node_modules/vue-loader/lib/style-rewriter.js?id=data-v-0971b9ea!./../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./Typewriter.vue", function() {
+				var newContent = require("!!./../node_modules/css-loader/index.js?sourceMap!./../node_modules/vue-loader/lib/style-rewriter.js?id=data-v-0971b9ea!./../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./Typewriter.vue");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -126,21 +145,21 @@ return /******/ (function(modules) { // webpackBootstrap
 	}
 
 /***/ },
-/* 5 */
+/* 3 */
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(6)();
+	exports = module.exports = __webpack_require__(4)();
 	// imports
 	
 	
 	// module
-	exports.push([module.id, ".typewriter-selected {\n  background-color: rgba(0, 0, 0, 0.1); }\n\n.typewriter-cursor {\n  opacity: 1;\n  -webkit-animation: blink 0.7s infinite;\n          animation: blink 0.7s infinite;\n  position: relative;\n  top: -3px;\n  left: -12px; }\n\n@-webkit-keyframes blink {\n  0% {\n    opacity: 1; }\n  50% {\n    opacity: 0; }\n  100% {\n    opacity: 1; } }\n\n@keyframes blink {\n  0% {\n    opacity: 1; }\n  50% {\n    opacity: 0; }\n  100% {\n    opacity: 1; } }\n", ""]);
+	exports.push([module.id, "\n.typewriter-selected{\n  background-color: rgba(0,0,0,.1);\n}\n.typewriter-cursor{\n    opacity: 1;\n    animation: blink 0.7s infinite;\n    position: relative;\n    top:-3px;\n    left:-12px;\n}\n@keyframes blink{\n0% { opacity:1;\n}\n50% { opacity:0;\n}\n100% { opacity:1;\n}\n}\n", "", {"version":3,"sources":["/./src/Typewriter.vue?bf505f4a"],"names":[],"mappings":";AAEA;EACA,iCAAA;CACA;AACA;IACA,WAAA;IACA,+BAAA;IACA,mBAAA;IACA,SAAA;IACA,WAAA;CACA;AACA;AACA,KAAA,UAAA;CAAA;AACA,MAAA,UAAA;CAAA;AACA,OAAA,UAAA;CAAA;CACA","file":"Typewriter.vue","sourcesContent":["<template src=\"./template.html\"></template>\n<style>\n.typewriter-selected{\n  background-color: rgba(0,0,0,.1);\n}\n.typewriter-cursor{\n    opacity: 1;\n    animation: blink 0.7s infinite;\n    position: relative;\n    top:-3px;\n    left:-12px;\n}\n@keyframes blink{\n    0% { opacity:1; }\n    50% { opacity:0; }\n    100% { opacity:1; }\n}\n</style>\n<script>\nexport default {\n  props: {\n    words: {\n      type: Array,\n      default () {\n        return []\n      }\n    },\n    interval: {\n      type: Number,\n      default: 200\n    },\n    speed: {\n      type: Number,\n      default: 300\n    },\n    cursor: {\n      type: Boolean,\n      default: true\n    },\n    cursorSymbol: {\n      type: String,\n      default: '|'\n    },\n    fullErase: {\n      type: Boolean,\n      default: false\n    }\n  },\n  data () {\n    return {\n      typePos: 0,\n      isTyping: false,\n      isWaiting: false,\n      currentWordPos: null,\n      currentWord: null,\n      typing: null,\n      isFullErasing: false\n    }\n  },\n  computed: {\n    isErasing () {\n      return !this.isTyping\n    },\n    finishTyping () {\n      if (this.typing === null || this.currentWord === null) return false\n      if (!this.hasStarted) return false\n      return this.isTyping && this.typing.length >= this.currentWord.length\n    },\n    hasStarted () {\n      return this.currentWord !== null\n    },\n    isErased () {\n      if (!this.hasStarted) return false\n      if (this.isErasing && this.typing === null) return true\n      return this.isErasing && this.typing.length <= 0\n    },\n    isLastWord () {\n      return this.hasStarted && this.currentWordPos >= (this.words.length - 1)\n    }\n  },\n  mounted () {\n    this.type()\n  },\n  beforeDestroy () {\n    this.destroyTimers()\n  },\n  methods: {\n    destroyTimers () {\n      this.destroyTypeInterval()\n      this.destroyCharTimeout()\n      this.destroyFullEraseTimeout()\n    },\n    destroyTypeInterval () {\n      if (this.typeInterval) {\n        clearInterval(this.typeInterval)\n      }\n    },\n    destroyCharTimeout () {\n      if (this.charTimeout) {\n        clearTimeout(this.charTimeout)\n      }\n    },\n    destroyFullEraseTimeout () {\n      if (this.fullEraseTimeout) {\n        clearTimeout(this.fullEraseTimeout)\n      }\n    },\n    next () {\n      if (!this.canContinue()) return\n\n      if (!this.hasStarted) {\n        this.currentWordPos = 0\n      } else {\n        if (this.isLastWord) {\n          this.currentWordPos = 0\n        } else {\n          this.currentWordPos++\n        }\n      }\n\n      this.isWaiting = true\n\n      this.charTimeout = setTimeout(() => {\n        this.destroyCharTimeout()\n        this.isWaiting = false\n        this.currentWord = this.words[this.currentWordPos]\n        this.typePos = this.isTyping ? this.currentWord.length : 0\n        this.isTyping = !this.isTyping\n      }, this.interval)\n    },\n    canContinue () {\n      if (this.isWaiting) return false\n\n      if (this.isTyping && !this.finishTyping && this.hasStarted) {\n        return false\n      }\n\n      if (this.isErasing && !this.isErased && this.hasStarted) {\n        return false\n      }\n\n      if (this.isTyping && this.finishTyping) {\n        this.isTyping = !this.isTyping\n        this.doFullErase()\n        return false\n      }\n\n      return true\n    },\n    doFullErase () {\n      if (this.fullErase && !this.isFullErasing) {\n        this.isFullErasing = true\n        this.isWaiting = true\n\n        this.fullEraseTimeout = setTimeout(() => {\n          clearTimeout(this.fullEraseTimeout)\n          this.reset()\n        }, 300)\n      }\n    },\n    reset () {\n      this.isWaiting = false\n      this.typing = null\n      this.typePos = 0\n      this.isFullErasing = false\n    },\n    type () {\n      this.destroyTypeInterval()\n\n      this.typeInterval = setInterval(() => {\n        this.next()\n\n        if (this.hasStarted && !this.isWaiting) {\n          if (this.isTyping) {\n            this.typePos++\n          } else {\n            this.typePos--\n          }\n          this.typing = this.currentWord.substr(0, this.typePos)\n        }\n      }, this.speed)\n    }\n  }\n}\n</script>\n"],"sourceRoot":"webpack://"}]);
 	
 	// exports
 
 
 /***/ },
-/* 6 */
+/* 4 */
 /***/ function(module, exports) {
 
 	/*
@@ -196,7 +215,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-/* 7 */
+/* 5 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/*
@@ -334,13 +353,6 @@ return /******/ (function(modules) { // webpackBootstrap
 		return styleElement;
 	}
 	
-	function createLinkElement(options) {
-		var linkElement = document.createElement("link");
-		linkElement.rel = "stylesheet";
-		insertStyleElement(options, linkElement);
-		return linkElement;
-	}
-	
 	function addStyle(obj, options) {
 		var styleElement, update, remove;
 	
@@ -349,19 +361,6 @@ return /******/ (function(modules) { // webpackBootstrap
 			styleElement = singletonElement || (singletonElement = createStyleElement(options));
 			update = applyToSingletonTag.bind(null, styleElement, styleIndex, false);
 			remove = applyToSingletonTag.bind(null, styleElement, styleIndex, true);
-		} else if(obj.sourceMap &&
-			typeof URL === "function" &&
-			typeof URL.createObjectURL === "function" &&
-			typeof URL.revokeObjectURL === "function" &&
-			typeof Blob === "function" &&
-			typeof btoa === "function") {
-			styleElement = createLinkElement(options);
-			update = updateLink.bind(null, styleElement);
-			remove = function() {
-				removeStyleElement(styleElement);
-				if(styleElement.href)
-					URL.revokeObjectURL(styleElement.href);
-			};
 		} else {
 			styleElement = createStyleElement(options);
 			update = applyToTag.bind(null, styleElement);
@@ -412,12 +411,21 @@ return /******/ (function(modules) { // webpackBootstrap
 	function applyToTag(styleElement, obj) {
 		var css = obj.css;
 		var media = obj.media;
+		var sourceMap = obj.sourceMap;
 	
-		if(media) {
-			styleElement.setAttribute("media", media)
+		if (media) {
+			styleElement.setAttribute("media", media);
 		}
 	
-		if(styleElement.styleSheet) {
+		if (sourceMap) {
+			// https://developer.chrome.com/devtools/docs/javascript-debugging
+			// this makes source maps inside style tags work properly in Chrome
+			css += '\n/*# sourceURL=' + sourceMap.sources[0] + ' */';
+			// http://stackoverflow.com/a/26603875
+			css += "\n/*# sourceMappingURL=data:application/json;base64," + btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap)))) + " */";
+		}
+	
+		if (styleElement.styleSheet) {
 			styleElement.styleSheet.cssText = css;
 		} else {
 			while(styleElement.firstChild) {
@@ -426,29 +434,10 @@ return /******/ (function(modules) { // webpackBootstrap
 			styleElement.appendChild(document.createTextNode(css));
 		}
 	}
-	
-	function updateLink(linkElement, obj) {
-		var css = obj.css;
-		var sourceMap = obj.sourceMap;
-	
-		if(sourceMap) {
-			// http://stackoverflow.com/a/26603875
-			css += "\n/*# sourceMappingURL=data:application/json;base64," + btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap)))) + " */";
-		}
-	
-		var blob = new Blob([css], { type: "text/css" });
-	
-		var oldSrc = linkElement.href;
-	
-		linkElement.href = URL.createObjectURL(blob);
-	
-		if(oldSrc)
-			URL.revokeObjectURL(oldSrc);
-	}
 
 
 /***/ },
-/* 8 */
+/* 6 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -456,11 +445,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
-	
-	var $writeInterval = null;
-	var $letterTimeout = null;
-	var $fullEraseTimeout = null;
-	
 	exports.default = {
 	  props: {
 	    words: {
@@ -492,55 +476,65 @@ return /******/ (function(modules) { // webpackBootstrap
 	  },
 	  data: function data() {
 	    return {
-	      pos: 0,
-	      isWriting: false,
+	      typePos: 0,
+	      isTyping: false,
 	      isWaiting: false,
 	      currentWordPos: null,
 	      currentWord: null,
-	      writing: null,
+	      typing: null,
 	      isFullErasing: false
 	    };
 	  },
 	
 	  computed: {
 	    isErasing: function isErasing() {
-	      return !this.isWriting;
+	      return !this.isTyping;
 	    },
-	    hasFinishedWriting: function hasFinishedWriting() {
-	      if (this.writing === null || this.currentWord === null) return false;
+	    finishTyping: function finishTyping() {
+	      if (this.typing === null || this.currentWord === null) return false;
 	      if (!this.hasStarted) return false;
-	      return this.isWriting && this.writing.length >= this.currentWord.length;
+	      return this.isTyping && this.typing.length >= this.currentWord.length;
 	    },
 	    hasStarted: function hasStarted() {
 	      return this.currentWord !== null;
 	    },
-	    hasFinishedErasing: function hasFinishedErasing() {
+	    isErased: function isErased() {
 	      if (!this.hasStarted) return false;
-	      if (this.isErasing && this.writing === null) return true;
-	      return this.isErasing && this.writing.length <= 0;
+	      if (this.isErasing && this.typing === null) return true;
+	      return this.isErasing && this.typing.length <= 0;
 	    },
 	    isLastWord: function isLastWord() {
 	      return this.hasStarted && this.currentWordPos >= this.words.length - 1;
 	    }
 	  },
-	  ready: function ready() {
+	  mounted: function mounted() {
 	    this.type();
 	  },
 	  beforeDestroy: function beforeDestroy() {
-	    if ($writeInterval !== null) {
-	      clearInterval($writeInterval);
-	    }
-	
-	    if ($letterTimeout !== null) {
-	      clearTimeout($letterTimeout);
-	    }
-	
-	    if ($fullEraseTimeout !== null) {
-	      clearTimeout($fullEraseTimeout);
-	    }
+	    this.destroyTimers();
 	  },
 	
 	  methods: {
+	    destroyTimers: function destroyTimers() {
+	      this.destroyTypeInterval();
+	      this.destroyCharTimeout();
+	      this.destroyFullEraseTimeout();
+	    },
+	    destroyTypeInterval: function destroyTypeInterval() {
+	      if (this.typeInterval) {
+	        clearInterval(this.typeInterval);
+	      }
+	    },
+	    destroyCharTimeout: function destroyCharTimeout() {
+	      if (this.charTimeout) {
+	        clearTimeout(this.charTimeout);
+	      }
+	    },
+	    destroyFullEraseTimeout: function destroyFullEraseTimeout() {
+	      if (this.fullEraseTimeout) {
+	        clearTimeout(this.fullEraseTimeout);
+	      }
+	    },
 	    next: function next() {
 	      var _this = this;
 	
@@ -558,67 +552,67 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	      this.isWaiting = true;
 	
-	      $letterTimeout = setTimeout(function () {
-	        clearTimeout($letterTimeout);
+	      this.charTimeout = setTimeout(function () {
+	        _this.destroyCharTimeout();
 	        _this.isWaiting = false;
 	        _this.currentWord = _this.words[_this.currentWordPos];
-	        _this.pos = _this.isWriting ? _this.currentWord.length : 0;
-	        _this.isWriting = !_this.isWriting;
+	        _this.typePos = _this.isTyping ? _this.currentWord.length : 0;
+	        _this.isTyping = !_this.isTyping;
 	      }, this.interval);
 	    },
 	    canContinue: function canContinue() {
 	      if (this.isWaiting) return false;
 	
-	      if (this.isWriting && !this.hasFinishedWriting && this.hasStarted) {
+	      if (this.isTyping && !this.finishTyping && this.hasStarted) {
 	        return false;
 	      }
 	
-	      if (this.isErasing && !this.hasFinishedErasing && this.hasStarted) {
+	      if (this.isErasing && !this.isErased && this.hasStarted) {
 	        return false;
 	      }
 	
-	      if (this.isWriting && this.hasFinishedWriting) {
-	        this.isWriting = !this.isWriting;
-	        this.prepareFullErase();
+	      if (this.isTyping && this.finishTyping) {
+	        this.isTyping = !this.isTyping;
+	        this.doFullErase();
 	        return false;
 	      }
 	
 	      return true;
 	    },
-	    prepareFullErase: function prepareFullErase() {
+	    doFullErase: function doFullErase() {
 	      var _this2 = this;
 	
 	      if (this.fullErase && !this.isFullErasing) {
 	        this.isFullErasing = true;
 	        this.isWaiting = true;
 	
-	        $fullEraseTimeout = setTimeout(function () {
-	          clearTimeout($fullEraseTimeout);
-	          _this2.isWaiting = false;
-	          _this2.writing = null;
-	          _this2.pos = 0;
-	          _this2.isFullErasing = false;
+	        this.fullEraseTimeout = setTimeout(function () {
+	          clearTimeout(_this2.fullEraseTimeout);
+	          _this2.reset();
 	        }, 300);
 	      }
+	    },
+	    reset: function reset() {
+	      this.isWaiting = false;
+	      this.typing = null;
+	      this.typePos = 0;
+	      this.isFullErasing = false;
 	    },
 	    type: function type() {
 	      var _this3 = this;
 	
-	      if ($writeInterval !== null) {
-	        clearInterval($writeInterval);
-	      }
+	      this.destroyTypeInterval();
 	
-	      $writeInterval = setInterval(function () {
+	      this.typeInterval = setInterval(function () {
 	        _this3.next();
 	
 	        if (_this3.hasStarted && !_this3.isWaiting) {
-	          if (_this3.isWriting) {
-	            _this3.pos++;
-	            _this3.writing = _this3.currentWord.substr(0, _this3.pos);
+	          if (_this3.isTyping) {
+	            _this3.typePos++;
 	          } else {
-	            _this3.pos--;
-	            _this3.writing = _this3.currentWord.substr(0, _this3.pos);
+	            _this3.typePos--;
 	          }
+	          _this3.typing = _this3.currentWord.substr(0, _this3.typePos);
 	        }
 	      }, this.speed);
 	    }
@@ -626,10 +620,27 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ },
-/* 9 */
-/***/ function(module, exports) {
+/* 7 */
+/***/ function(module, exports, __webpack_require__) {
 
-	module.exports = "<span class=\"typewriter\">\n    <slot></slot>\n    <span\n      class=\"typewriter-msg\"\n      :class='{\"typewriter-selected\":isFullErasing}'>{{ writing }}</span>\n    <span class=\"typewriter-cursor\" v-if=\"cursor\">{{ cursorSymbol }}</span>\n  </span>";
+	module.exports={render:function (){with(this) {
+	  return _h('span', {
+	    staticClass: "typewriter"
+	  }, [_t("default"), " ", _h('span', {
+	    staticClass: "typewriter-msg",
+	    class: {
+	      "typewriter-selected": isFullErasing
+	    }
+	  }, [_s(typing)]), " ", (cursor) ? _h('span', {
+	    staticClass: "typewriter-cursor"
+	  }, [_s(cursorSymbol)]) : _e()])
+	}},staticRenderFns: []}
+	if (false) {
+	  module.hot.accept()
+	  if (module.hot.data) {
+	     require("vue-loader/node_modules/vue-hot-reload-api").rerender("data-v-0971b9ea", module.exports)
+	  }
+	}
 
 /***/ }
 /******/ ])
