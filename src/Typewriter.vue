@@ -78,7 +78,7 @@ export default {
       return this.hasStarted && this.currentWordPos >= (this.words.length - 1)
     }
   },
-  ready () {
+  mounted () {
     this.type()
   },
   beforeDestroy () {
@@ -141,13 +141,13 @@ export default {
 
       if (this.isTyping && this.finishTyping) {
         this.isTyping = !this.isTyping
-        this.fullErase()
+        this.doFullErase()
         return false
       }
 
       return true
     },
-    fullErase () {
+    doFullErase () {
       if (this.fullErase && !this.isFullErasing) {
         this.isFullErasing = true
         this.isWaiting = true

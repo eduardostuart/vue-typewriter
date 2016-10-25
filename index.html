@@ -34,20 +34,22 @@
 </head>
 <body>
 
-  <div class="msg">
-      <typewriter
-          :speed="200"
-          :full-erase="true"
-          :interval="300"
-          :words='["Awesome!","Amazing!"]'>
-          Vue Typewriter is
-      </typewriter>
+  <div id="root">
+    <div class="msg">
+        <typewriter
+            :speed="200"
+            :full-erase="true"
+            :interval="300"
+            :words='["Awesome!","Amazing!"]'>
+            Vue Typewriter is
+        </typewriter>
+    </div>
   </div>
 
   <script src="node_modules/vue/dist/vue.min.js"></script>
   <script src="dist/typewriter.js"></script>
   <script>
-    new Vue().$mount('body')
+    new Vue().$mount('#root')
   </script>
 
 </body>
