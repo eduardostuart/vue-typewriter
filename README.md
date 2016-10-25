@@ -1,6 +1,6 @@
 # Vue Typewriter
 
-> For Vue 1.x see the 1.x branch.
+> For Vue 1.x see the [1.x branch](https://github.com/eduardostuart/vue-typewriter/tree/1.x).
 
 ## Install
 
@@ -10,7 +10,7 @@
 
 ## Usage
 
-```
+```vue
 <typewriter
     :speed="200"
     :full-erase="true"
