@@ -90,11 +90,15 @@ var _Typewriter2 = _interopRequireDefault(_Typewriter);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-if (window.Vue) {
-  window.Vue.component('typewriter', _Typewriter2.default);
-}
+var Typewriter = {
+  install: function install(Vue) {
+    Vue.component('typewriter', _Typewriter2.default);
+  }
 
-exports.default = _Typewriter2.default;
+  // register plugin if it is used via cdn or directly as a script tag
+};window.Vue && (window.Typewriter = Typewriter);
+
+exports.default = Typewriter;
 
 /***/ }),
 /* 1 */
