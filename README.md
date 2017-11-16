@@ -3,14 +3,18 @@
 > For Vue 1.x see the [1.x branch](https://github.com/eduardostuart/vue-typewriter/tree/1.x).
 
 
-![](https://github.com/eduardostuart/vue-typewriter/raw/gh-pages/screenshot.png)
+![Vue Typewriter](https://github.com/eduardostuart/vue-typewriter/raw/gh-pages/screenshot.png)
 
 
 ## Install
 
-**NPM**
+**npm**
 
 `npm install vue-typewriter --save`
+
+**yarn**
+
+`yarn add vue-typewriter`
 
 ## Usage
 
@@ -26,7 +30,7 @@
 
 ## Example
 
-[eduardostuart.github.io/vue-typewriter](https://eduardostuart.github.io/vue-typewriter)
+[eduardostuart.github.io/vue-typewriter](https://eduardostuart.github.io/vue-typewriter/dist)
 
 ## License
 
