@@ -1,4 +1,4 @@
-import Typewriter from './Typewriter.vue'
+import Typewriter from './Typewriter'
 
 if (window.Vue) {
   window.Vue.component('typewriter', Typewriter)

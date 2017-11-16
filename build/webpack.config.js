@@ -1,66 +1,47 @@
-var webpack = require('webpack')
-var path = require('path')
-var projectRoot = path.resolve(__dirname, '../');
+const webpack = require('webpack')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const path = require('path')
+
+const resolve = dir => path.resolve(__dirname, '..', dir)
 
 module.exports = {
-  entry: './src/index.js',
+  context: resolve('src'),
+  entry: './index.js',
   output: {
-    path: './dist',
+    path: resolve('dist'),
+    pathinfo: !(process.env.NODE_ENV === 'production'),
     publicPath: '/dist/',
     filename: 'typewriter.js'
   },
   resolve: {
-    root: path.resolve('./')
+    extensions: ['.js', '.vue'],
+    alias: {
+      'vue$': 'vue/dist/vue.esm.js'
+    }
   },
   module: {
-    preLoaders: [
+    rules: [
+      {
+        test: /\.vue|\.js$/,
+        use: 'eslint-loader',
+        exclude: /node_modules/,
+        enforce: 'pre'
+      },
       {
         test: /\.vue$/,
-        loader: 'eslint',
-        include: projectRoot,
-        exclude: /node_modules/
+        use: 'vue-loader'
       },
       {
         test: /\.js$/,
-        loader: 'eslint',
-        include: projectRoot,
-        exclude: /node_modules/
+        exclude: /node_modules/,
+        use: 'babel-loader'
       }
-    ],
-    loaders: [
-      {test: /\.vue$/, loader: 'vue' },
-      {test: /\.js$/,exclude: /node_modules/,loader: 'babel'},
-      {test: /\.scss$/, loader: "style!css!sass"}
     ]
   },
-  babel: {
-    presets: ['es2015'],
-    plugins: ['transform-runtime']
-  },
-  eslint: {
-    formatter: require('eslint-friendly-formatter')
-  },
-  devtool: 'source-map',
-  devServer: {
-    inline:true,
-    port: 8080
-  }
-};
-
-
-if (process.env.NODE_ENV === 'production') {
-  delete module.exports.devtool;
-  module.exports.plugins = [
-    new webpack.DefinePlugin({
-      'process.env': {
-        NODE_ENV: '"production"'
-      }
-    }),
-    new webpack.optimize.UglifyJsPlugin({
-      compress: {
-        warnings: false
-      }
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: 'example.html',
+      inject: false
     })
-  ];
+  ]
 }
-

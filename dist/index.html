@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <title>Vue - Typewriter</title>
-  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Source+Sans+Pro:100,300,400,600,700">
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Source+Sans+Pro:100,600">
   <style type="text/css">
     body,html{
       width:100%;
@@ -17,24 +17,25 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      font-family: 'Source+Sans',sans-serif;
+      font-family: 'Source Sans',sans-serif;
     }
-    .msg{
+    .msg {
       padding:20px;
       font-size: 65px;
       text-align: center;
       font-weight: 100;
     }
-    .typewriter-msg{
+    .typewriter-msg {
       color:red;
       border-bottom: 2px solid red;
-      font-weight: 500;
+      font-weight: 600;
     }
   </style>
 </head>
 <body>
 
   <div id="root">
+
     <div class="msg">
         <typewriter
             :speed="200"
@@ -44,13 +45,12 @@
             Vue Typewriter is
         </typewriter>
     </div>
+
   </div>
 
-  <script src="node_modules/vue/dist/vue.min.js"></script>
-  <script src="dist/typewriter.js"></script>
-  <script>
-    new Vue().$mount('#root')
-  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.3/vue.min.js"></script>
+  <script src="./typewriter.js"></script>
+  <script>new Vue({el: '#root'})</script>
 
 </body>
 </html>

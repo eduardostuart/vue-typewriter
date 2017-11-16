@@ -1,21 +1,12 @@
-<template src="./template.html"></template>
-<style>
-.typewriter-selected{
-  background-color: rgba(0,0,0,.1);
-}
-.typewriter-cursor{
-    opacity: 1;
-    animation: blink 0.7s infinite;
-    position: relative;
-    top:-3px;
-    left:-12px;
-}
-@keyframes blink{
-    0% { opacity:1; }
-    50% { opacity:0; }
-    100% { opacity:1; }
-}
-</style>
+<template>
+  <span class="typewriter">
+  <slot></slot>
+  <span
+    class="typewriter-msg"
+    :class='{"typewriter-selected":isFullErasing}'>{{ typing }}</span>
+    <span class="typewriter-cursor" v-if="cursor">{{ cursorSymbol }}</span>
+  </span>
+</template>
 <script>
 export default {
   props: {
@@ -183,3 +174,20 @@ export default {
   }
 }
 </script>
+<style>
+.typewriter-selected{
+  background-color: rgba(0,0,0,.1);
+}
+.typewriter-cursor{
+    opacity: 1;
+    animation: blink 0.7s infinite;
+    position: relative;
+    top:-3px;
+    left:-12px;
+}
+@keyframes blink{
+    0% { opacity:1; }
+    50% { opacity:0; }
+    100% { opacity:1; }
+}
+</style>
