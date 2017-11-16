@@ -1,7 +1,7 @@
 {
   "name": "vue-typewriter",
   "version": "2.0.0",
-  "description": "",
+  "description": "Vue Component that types.",
   "main": "dist/typewriter.js",
   "scripts": {
     "dev": "cross-env NODE_ENV=dev webpack-dev-server --colors --inline --config build/webpack.dev.config.js",
@@ -11,6 +11,15 @@
     "type": "git",
     "url": "https://github.com/eduardostuart/vue-typewriter.git"
   },
+  "bugs": {
+    "url": "https://github.com/eduardostuart/vue-typewriter/issues"
+  },
+  "homepage": "https://eduardostuart.github.io/vue-typewriter",
+  "keywords": [
+    "vue",
+    "typewriter",
+    "vue-typewriter"
+  ],
   "author": "Eduardo Stuart",
   "license": "MIT",
   "dependencies": {
