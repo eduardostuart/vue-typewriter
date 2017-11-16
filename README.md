@@ -19,6 +19,15 @@
 
 ## Usage
 
+```js
+import Typewriter from 'vue-typewriter'
+import Vue from 'vue'
+
+Vue.use(Typewriter)
+```
+
+
+
 ```vue
 <typewriter
     :speed="200"

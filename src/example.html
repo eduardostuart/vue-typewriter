@@ -50,7 +50,10 @@
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.3/vue.min.js"></script>
   <script src="./typewriter.js"></script>
-  <script>new Vue({el: '#root'})</script>
+  <script>
+    Vue.use(Typewriter);
+    new Vue({el: '#root'});
+  </script>
 
 </body>
 </html>

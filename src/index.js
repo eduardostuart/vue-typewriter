@@ -1,7 +1,12 @@
-import Typewriter from './Typewriter'
+import TypewriterComponent from './Typewriter'
 
-if (window.Vue) {
-  window.Vue.component('typewriter', Typewriter)
+const Typewriter = {
+  install: Vue => {
+    Vue.component('typewriter', TypewriterComponent)
+  }
 }
+
+// register plugin if it is used via cdn or directly as a script tag
+window.Vue && (window.Typewriter = Typewriter)
 
 export default Typewriter
