@@ -3,7 +3,8 @@
 > For Vue 1.x see the [1.x branch](https://github.com/eduardostuart/vue-typewriter/tree/1.x).
 
 
-![](https://github.com/eduardostuart/vue-typewriter/raw/gh-pages/screenshot.png)
+[![Vue Typewriter](http://share.s.tuart.me/5sGnCt/11adSn3m+)](https://eduardostuart.github.io/vue-typewriter/)
+
 
 
 ## Install
