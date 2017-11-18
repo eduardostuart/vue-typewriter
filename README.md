@@ -3,7 +3,7 @@
 > For Vue 1.x see the [1.x branch](https://github.com/eduardostuart/vue-typewriter/tree/1.x).
 
 
-[![Vue Typewriter](http://share.s.tuart.me/UsKQQh/527xg8fT+)](https://eduardostuart.github.io/vue-typewriter/)
+[![Vue Typewriter](http://share.s.tuart.me/UsKQQh/527xg8fT+)](https://eduardostuart.github.io/vue-typewriter/dist)
 
 
 
@@ -20,8 +20,8 @@
 ## Usage
 
 ```js
-import Typewriter from 'vue-typewriter'
 import Vue from 'vue'
+import Typewriter from 'vue-typewriter'
 
 Vue.use(Typewriter)
 ```
@@ -38,11 +38,7 @@ Vue.use(Typewriter)
 </typewriter>
 ```
 
-## Example
-
-[eduardostuart.github.io/vue-typewriter](https://eduardostuart.github.io/vue-typewriter/dist)
-
 ## License
 
-[MIT](http://opensource.org/licenses/MIT)
+This project is licensed under the [MIT](http://opensource.org/licenses/MIT) license.
 
