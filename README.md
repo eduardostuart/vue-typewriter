@@ -3,7 +3,7 @@
 > For Vue 1.x see the [1.x branch](https://github.com/eduardostuart/vue-typewriter/tree/1.x).
 
 
-[![Vue Typewriter](http://share.s.tuart.me/UsKQQh/527xg8fT+)](https://eduardostuart.github.io/vue-typewriter/dist)
+[![Vue Typewriter](http://share.s.tuart.me/W6T9zD/265W1bqb+)](https://eduardostuart.github.io/vue-typewriter/dist)
 
 
 
