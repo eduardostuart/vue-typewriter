@@ -1,13 +1,21 @@
-# Vue Typewriter
+<div align="center">
+   
+  <h1>⌨️ Vue Typewriter</h1>
+
+  <a href="https://eduardostuart.github.io/vue-typewriter/dist" target="_blank">
+    <img src="http://share.s.tuart.me/W6T9zD/265W1bqb+" width="918">
+  </a>
+  
+  <br>
+
+</div>
+
 
 > For Vue 1.x see the [1.x branch](https://github.com/eduardostuart/vue-typewriter/tree/1.x).
 
 
-[![Vue Typewriter](http://share.s.tuart.me/W6T9zD/265W1bqb+)](https://eduardostuart.github.io/vue-typewriter/dist)
-
-
-
 ## Install
+
 
 **npm**
 
